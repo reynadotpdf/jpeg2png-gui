@@ -17,7 +17,6 @@ namespace jpeg2png_gui
         {
             InitializeComponent();
 
-            // Set the label1 default text
             label1.Text = "Ready";
 
             // Set dark mode colors for the form and controls
@@ -125,9 +124,8 @@ namespace jpeg2png_gui
                 return;
             }
 
-            // Set label text to "Processing" before starting the processing
             label1.Text = "Processing";
-            progressBar1.Value = 0; // Reset progress bar
+            progressBar1.Value = 0; 
 
             string weightText = comboBox1.SelectedItem.ToString().Split(' ')[0];
             string iterationsText = comboBox2.SelectedItem.ToString().Split(' ')[0];
@@ -186,9 +184,9 @@ namespace jpeg2png_gui
             }
 
             MessageBox.Show("Processing complete. All output files are saved.");
-            label1.Text = "Ready"; // Revert label1 text to "Ready"
+            label1.Text = "Ready";
             this.Text = "jpeg2png GUI";
-            progressBar1.Value = 100; // Ensure progress bar is full at completion
+            progressBar1.Value = 100;
         }
 
         private void DisplayImage(int index)
@@ -209,12 +207,12 @@ namespace jpeg2png_gui
 
         private void Button2_MouseEnter(object sender, EventArgs e)
         {
-            label1.Text = "Press Shift to set output location."; // Update label1 text on hover for button2
+            label1.Text = "Press Shift to set output location."; 
         }
 
         private void Button2_MouseLeave(object sender, EventArgs e)
         {
-            label1.Text = "Ready"; // Revert label1 text when not hovering over button2
+            label1.Text = "Ready"; 
         }
 
         private void groupBox1_Enter(object sender, EventArgs e) { }
