@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35327.3
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "jpeg2png-gui", "jpeg2png-gui\jpeg2png-gui.csproj", "{26C714B7-BF41-431B-9A97-03BE83FFC556}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{26C714B7-BF41-431B-9A97-03BE83FFC556}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{26C714B7-BF41-431B-9A97-03BE83FFC556}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{26C714B7-BF41-431B-9A97-03BE83FFC556}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{26C714B7-BF41-431B-9A97-03BE83FFC556}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {095730DB-6AFF-4756-9A6F-7976F7BAE39E}
+	EndGlobalSection
+EndGlobal
