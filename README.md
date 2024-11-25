@@ -11,7 +11,7 @@ This program requires ![jpeg2png](https://github.com/victorvde/jpeg2png/releases
 * Support for multiple images
 * Allows for adjusting of basic settings
 * Automatic save location with manual override
-* Image preview
+* Image preview (Cycles through images if there's more than one.)
 * Progress bar
 * Dark Mode UI
 
