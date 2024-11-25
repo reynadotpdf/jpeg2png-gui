@@ -112,7 +112,6 @@ namespace jpeg2png_gui
                 selectedFilePaths = openFileDialog.FileNames.ToList();
                 DisplayImage(0);
 
-                // Start Timer if more than one image is selected
                 if (selectedFilePaths.Count > 1)
                 {
                     imageTimer.Start();
@@ -193,7 +192,7 @@ namespace jpeg2png_gui
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("An error occurred while processing the file: " + ex.Message);
+                    MessageBox.Show("An error occurred while processing the file '{0}'. Make sure the file isn't corrupted, or in an unsupported format.",ex.Message);
                 }
             }
 
