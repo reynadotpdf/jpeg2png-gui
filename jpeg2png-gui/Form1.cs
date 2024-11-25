@@ -12,6 +12,7 @@ namespace jpeg2png_gui
     {
         List<string> selectedFilePaths = new List<string>();
         int currentImageIndex = 0;
+        Timer imageTimer;
 
         public Form1()
         {
@@ -19,7 +20,6 @@ namespace jpeg2png_gui
 
             label1.Text = "Ready";
 
-            // Set dark mode colors for the form and controls
             this.BackColor = Color.FromArgb(45, 45, 48);
             this.ForeColor = Color.White;
 
@@ -78,6 +78,10 @@ namespace jpeg2png_gui
             groupBox1.BackColor = Color.FromArgb(45, 45, 48);
             groupBox1.ForeColor = Color.White;
 
+            // Initialize Timer
+            imageTimer = new Timer();
+            imageTimer.Interval = 1000; // 1 second
+            imageTimer.Tick += ImageTimer_Tick;
         }
 
         private void ComboBox_DrawItem(object sender, DrawItemEventArgs e)
@@ -107,6 +111,16 @@ namespace jpeg2png_gui
             {
                 selectedFilePaths = openFileDialog.FileNames.ToList();
                 DisplayImage(0);
+
+                // Start Timer if more than one image is selected
+                if (selectedFilePaths.Count > 1)
+                {
+                    imageTimer.Start();
+                }
+                else
+                {
+                    imageTimer.Stop();
+                }
             }
         }
 
@@ -125,7 +139,7 @@ namespace jpeg2png_gui
             }
 
             label1.Text = "Processing";
-            progressBar1.Value = 0; 
+            progressBar1.Value = 0;
 
             string weightText = comboBox1.SelectedItem.ToString().Split(' ')[0];
             string iterationsText = comboBox2.SelectedItem.ToString().Split(' ')[0];
@@ -200,21 +214,24 @@ namespace jpeg2png_gui
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("An error occurred while loading the image: " + ex.Message);
+                    MessageBox.Show($"An error occurred while loading the image '{selectedFilePaths[index]}'. Make sure the file is formatted correctly, and not corrupted. ", ex.Message);
                 }
             }
         }
 
-        private void Button2_MouseEnter(object sender, EventArgs e)
+        private void ImageTimer_Tick(object sender, EventArgs e)
         {
-            label1.Text = "Press Shift to set output location."; 
+            currentImageIndex = (currentImageIndex + 1) % selectedFilePaths.Count;
+            DisplayImage(currentImageIndex);
         }
 
-        private void Button2_MouseLeave(object sender, EventArgs e)
-        {
-            label1.Text = "Ready"; 
-        }
+        private void Button2_MouseEnter(object sender, EventArgs e) => label1.Text = "Press Shift to set output location.";
 
+        private void Button2_MouseLeave(object sender, EventArgs e) => label1.Text = "Ready";
+
+
+
+        //I don't know why this has to stay here but it won't compile if I delete it, life goes on.
         private void groupBox1_Enter(object sender, EventArgs e) { }
 
         private void pictureBox1_Click(object sender, EventArgs e) { }
