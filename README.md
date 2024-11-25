@@ -15,4 +15,8 @@ This program requires ![jpeg2png](https://github.com/victorvde/jpeg2png/releases
 * Progress bar
 * Dark Mode UI
 
+# Roadmap
+* Different speed modes
+* Multithreading
+* Support for the 16-bit output mode
 
