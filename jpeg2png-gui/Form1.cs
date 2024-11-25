@@ -189,6 +189,7 @@ namespace jpeg2png_gui
                     completed++;
                     this.Text = $"Processing files... [{completed}/{selectedFilePaths.Count}]";
                     progressBar1.Value = (completed * 100) / selectedFilePaths.Count;
+                    MessageBox.Show("Processing complete. All output files are saved.");
                 }
                 catch (Exception ex)
                 {
@@ -196,7 +197,6 @@ namespace jpeg2png_gui
                 }
             }
 
-            MessageBox.Show("Processing complete. All output files are saved.");
             label1.Text = "Ready";
             this.Text = "jpeg2png GUI";
             progressBar1.Value = 100;
